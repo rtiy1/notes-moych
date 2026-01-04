@@ -1,6 +1,7 @@
 {
   "name": "my-notes",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "docs:dev": "vitepress dev docs",
@@ -16,5 +17,8 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "element-plus": "^2.13.0"
   }
 }

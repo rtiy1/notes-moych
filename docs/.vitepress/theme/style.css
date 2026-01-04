@@ -1,0 +1,182 @@
+/* 阮喵喵笔记风格自定义 */
+
+:root {
+  --vp-c-brand-1: #9b59b6; /* 紫色主题 */
+  --vp-c-brand-2: #8e44ad;
+  --vp-c-brand-3: #7d3c98;
+  --vp-c-brand-soft: rgba(155, 89, 182, 0.14);
+  
+  --vp-sidebar-bg-color: #f6f6f7;
+  --vp-nav-bg-color: rgba(255, 255, 255, 0.8);
+}
+
+.dark {
+  --vp-c-brand-1: #bb8fce;
+  --vp-c-brand-2: #af7ac5;
+  --vp-c-brand-3: #a569bd;
+  --vp-sidebar-bg-color: #1a1a1a;
+  --vp-nav-bg-color: #1a1a1a;
+  --vp-c-bg: #1a1a1a;
+  --vp-c-bg-soft: #242424;
+  --vp-c-bg-mute: #2c2c2c;
+}
+
+/* 侧边栏美化 */
+.VPSidebar {
+  border-right: 1px solid var(--vp-c-divider) !important;
+  width: 300px !important;
+}
+
+.VPSidebarItem.level-0 > .item > .text {
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  color: var(--vp-c-text-1) !important;
+}
+
+.VPSidebarItem.level-0 {
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--vp-c-gutter) !important;
+  margin-bottom: 8px !important;
+}
+
+/* 隐藏默认的小箭头，使用更明显的样式 */
+.VPSidebarItem.collapsed .caret {
+  transform: rotate(-90deg);
+}
+
+/* 正文标题样式 */
+h1 {
+  border-left: 4px solid var(--vp-c-brand-1);
+  padding-left: 16px;
+  margin-top: 24px !important;
+  margin-bottom: 16px !important;
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* Mac 风格代码块深度还原 */
+div[class*='language-'] {
+  position: relative;
+  margin: 1.5rem 0 !important;
+  padding-top: 36px !important;
+  background-color: #ffffff !important; /* 亮色模式默认白色 */
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 1px solid var(--vp-c-divider);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.dark div[class*='language-'] {
+  background-color: #1e1e1e !important; /* 暗色模式黑色 */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+div[class*='language-']::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff5f56;
+  box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
+  z-index: 10;
+}
+
+/* 内部代码样式微调 */
+div[class*='language-'] pre {
+  margin: 0 !important;
+  padding: 16px !important;
+  background: transparent !important;
+  font-family: 'Fira Code', 'Cascadia Code', 'Menlo', 'Monaco', 'Consolas', monospace !important;
+  font-size: 14.5px !important;
+  line-height: 1.7 !important;
+  color: var(--vp-c-text-1) !important; /* 使用变量适配亮暗模式文本 */
+}
+
+.dark div[class*='language-'] pre {
+  color: #abb2bf !important;
+}
+
+/* 确保语法高亮颜色不受透明度影响 */
+div[class*='language-'] code span {
+  opacity: 1 !important;
+}
+
+/* 聚光灯效果基础样式 */
+.spotlight-active {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(
+    circle at var(--x) var(--y),
+    transparent 150px,
+    rgba(0, 0, 0, 0.6) 200px
+  );
+}
+
+/* 页面导航面包屑 */
+.VPDocOutlineItem.item {
+  font-size: 13px !important;
+}
+
+/* 顶部导航栏 */
+.VPNavBar {
+  border-bottom: 1px solid var(--vp-c-divider) !important;
+  background-color: var(--vp-nav-bg-color) !important;
+  transition: all 0.3s ease;
+}
+
+/* 彻底解决黑暗模式顶部导航栏白色问题 */
+.dark .VPNavBar {
+  background-color: var(--vp-c-bg) !important;
+  backdrop-filter: none !important;
+}
+
+.dark .VPNavBar .container,
+.dark .VPNavBar .content,
+.dark .VPNavBar .content-body,
+.dark .VPNavBar .wrapper {
+  background-color: transparent !important;
+}
+
+/* 布局宽度控制 */
+:root {
+  --vp-layout-max-width: 1440px;
+  --vp-sidebar-width: 300px;
+}
+
+.VPSidebar {
+  width: var(--vp-sidebar-width) !important;
+  transition: transform 0.3s ease, width 0.3s ease !important;
+}
+
+/* 隐藏侧边栏时的样式 */
+.no-sidebar .VPSidebar {
+  width: 0 !important;
+  transform: translateX(-100%);
+}
+
+.no-sidebar .VPContent {
+  padding-left: 0 !important;
+}
+
+.no-sidebar .VPDoc {
+  padding-left: 0 !important;
+}
+
+.VPDoc .container {
+  max-width: var(--vp-layout-max-width) !important;
+  transition: max-width 0.3s ease;
+  margin: 0 auto;
+}
+
+/* 最后更新时间样式 */
+.last-updated {
+  font-size: 14px;
+  color: var(--vp-c-text-3);
+  margin-bottom: 8px;
+}
