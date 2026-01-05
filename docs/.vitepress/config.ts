@@ -8,9 +8,9 @@ const userConfig = setUserConfig({
 	],
 	themeConfig: {
 		nav: [
-			{ text: '学习待办', link: '/todo' },
-			{ text: '遭遇的bug', link: '/bugs' },
-			{ text: 'Git使用', link: '/git' }
+			{ text: '算法笔记', link: '/算法笔记/' },
+			{ text: '后端笔记', link: '/后端笔记/' },
+			{ text: '其他笔记', link: '/其他笔记/' }
 		],
 		socialLinks: [
 			{ icon: 'github', link: 'https://github.com/rtiy1' }

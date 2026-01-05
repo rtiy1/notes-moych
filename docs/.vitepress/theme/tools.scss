@@ -1,4 +1,3 @@
-/* 自定义配置 */
 :root {
 	--vp-sidebar-width: 23rem;
 }
@@ -6,13 +5,13 @@
 @mixin before($counterName) {
 	&::before {
 		display: inline-block;
-
 		min-width: 1rem;
 		margin-right: 0.8rem;
 		padding: 0.22rem 0;
-
 		counter-increment: $counterName;
-		content: counters($counterName, ".") ".";
+		content: counters($counterName, ".") ". "; // 注意这里加了个空格，匹配图片效果
+		color: var(--vp-c-brand-1);
+		font-weight: bold;
 	}
 }
 
@@ -20,14 +19,43 @@ aside.VPSidebar {
 	nav.nav {
 		counter-reset: list-number 0;
 
-		// 每一个具体的子项 增加标号
-		.VPSidebarItem {
-			.item {
+		// 针对 VitePress 的 Group 结构 (分组标题)
+		.group {
+			.title-text {
+				display: inline-flex !important;
+				align-items: flex-start;
 				@include before(list-number);
+			}
+			
+			// 分组内部重置子计数器
+			.items {
+				counter-reset: list-number 0;
 			}
 		}
 
-		// 遇到折叠栏标记时 才认定为属于新的递归起点 开始重新计数
+		// 每一个具体的子项增加标号
+		.VPSidebarItem {
+			.item {
+				// 确保 flex 布局不会让编号换行
+				display: flex !important;
+				align-items: flex-start;
+
+				.text {
+					display: inline-flex !important;
+					align-items: flex-start;
+					@include before(list-number);
+				}
+			}
+		}
+
+		// 遇到有子项的容器时，重新开始子计数
+		// 在 VitePress 中，有子项的 VPSidebarItem 会包含一个 .items 容器
+		.VPSidebarItem {
+			& > .items {
+				counter-reset: list-number 0;
+			}
+		}
+		
 		.VPSidebarItem.collapsible {
 			.items {
 				counter-reset: list-number 0;
