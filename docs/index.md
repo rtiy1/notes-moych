@@ -1,26 +1,88 @@
 ---
-layout: home
-
-hero:
-  name: "My Notes"
-  text: "个人学习笔记"
-  tagline: 记录成长，分享知识
-  actions:
-    - theme: brand
-      text: 开始阅读
-      link: /算法套路总结
-    - theme: alt
-      text: GitHub
-      link: https://github.com/vuejs/vitepress
-
-features:
-  - icon: 📚
-    title: 算法总结
-    details: 系统整理常用的算法套路和刷题心得。
-  - icon: 🚀
-    title: 技术笔记
-    details: 涵盖 Redis、SSM 等后端主流技术的深入学习笔记。
-  - icon: 🛠️
-    title: 持续更新
-    details: 保持更新，紧跟技术前沿。
+layout: doc
 ---
+
+# 算法套路总结
+
+## 定长滑动窗口算法
+
+`套路口诀：先建窗，再滑动；右进左出，更新答案`
+
+例子为：LeetCode 1456题	
+
+```java
+class Solution {
+    public int maxVowels(String s, int k) {
+        char[] c = s.toCharArray();
+        int target = 0;
+        Set<Character> Vowels = Set.of('a', 'e', 'i', 'o', 'u');
+        
+        // 初始化第一个窗口 [0, k-1]
+        for (int i = 0; i < k; i++) {
+            if (Vowels.contains(c[i])) {
+                target++;
+            }
+        }
+        
+        int res = target;
+        
+        // 滑动窗口：i 是新加入的右边界
+        for (int i = k; i < c.length; i++) {
+            // 加入右边
+            if (Vowels.contains(c[i])) target++;
+            // 移出左边
+            if (Vowels.contains(c[i - k])) target--;
+            // 更新结果
+            res = Math.max(res, target);
+        }
+      
+        return res;
+    }
+}
+```
+
+## 可变滑动窗口算法
+
+`套路口诀：右扩找解，左缩优化；while 收缩，实时更新`
+
+例子为：LeetCode 209题
+
+```JAVA
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+
+        // 初始化结果为一个“不可能达到”的大值
+        int result = nums.length + 1;
+
+        // 滑动窗口的左右指针
+        // i：左边界（包含），j：右边界（不包含）→ 当前窗口为 [i, j)
+        int i = 0; // 左指针
+        int j = 0; // 右指针
+        int total = 0; // 当前窗口内元素的和
+
+        // 主循环：不断扩展右边界 j
+        while (j < nums.length) {
+            // 1️⃣ 【扩张】将 nums[j] 加入窗口，并移动右指针
+            total += nums[j];
+            j++; // 此时窗口为 [i, j)
+
+            // 2️⃣ 【收缩】当窗口和 ≥ target 时，尝试缩小左边界以寻找更短子数组
+            while (total >= target) {
+                // 3️⃣ 【更新结果】当前窗口 [i, j) 满足条件，长度为 j - i
+                result = Math.min(result, j - i);
+
+                // 4️⃣ 【收缩左边界】移除 nums[i]，并移动左指针
+                total -= nums[i];
+                i++;
+            }
+            // 注意：退出内层 while 后，窗口 [i, j) 的和 < target，需继续扩右
+        }
+
+        // 如果 result 仍为初始大值，说明没有找到满足条件的子数组
+        return result == nums.length + 1 ? 0 : result;
+    }
+}
+```

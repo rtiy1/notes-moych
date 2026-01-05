@@ -1,19 +1,28 @@
-// .vitepress/theme/index.ts
-import DefaultTheme from 'vitepress/theme'
-import './style.css'
-import MyLayout from './Layout.vue'
-// @ts-ignore
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import { defineRuancatPresetTheme } from "@ruan-cat/vitepress-preset-config/theme";
 
-export default {
-  extends: DefaultTheme,
-  Layout: MyLayout,
-  enhanceApp({ app }: { app: any }) {
-    app.use(ElementPlus)
-    for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-      app.component(key, component)
-    }
-  }
-}
+import "./style.css";
+import "./tools.scss";
+
+import ElementPlus from "element-plus";
+import "element-plus/dist/index.css";
+
+/** @see https://element-plus.org/zh-CN/guide/dark-mode.html */
+import "element-plus/theme-chalk/dark/css-vars.css";
+
+import "animate.css";
+
+import { createPinia } from "pinia";
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+
+export default defineRuancatPresetTheme({
+	enhanceAppCallBack({ app, router, siteData }) {
+		const pinia = createPinia();
+		pinia.use(piniaPluginPersistedstate);
+
+		// @ts-ignore
+		app.use(pinia);
+
+		// @ts-ignore
+		app.use(ElementPlus);
+	},
+});

@@ -1,182 +1,140 @@
-/* 阮喵喵笔记风格自定义 */
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+
+/**
+ * Colors
+ *
+ * Each colors have exact same color scale system with 3 levels of solid
+ * colors with different brightness, and 1 soft color.
+ * 
+ * - `XXX-1`: The most solid color used mainly for colored text. It must
+ *   satisfy the contrast ratio against when used on top of `XXX-soft`.
+ *
+ * - `XXX-2`: The color used mainly for hover state of the button.
+ *
+ * - `XXX-3`: The color for solid background, such as bg color of the button.
+ *   It must satisfy the contrast ratio with pure white (#ffffff) text on
+ *   top of it.
+ *
+ * - `XXX-soft`: The color used for subtle background such as custom container
+ *   or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
+ *   on top of it.
+ *
+ *   The soft color must be semi transparent alpha channel. This is crucial
+ *   because it allows adding multiple "soft" colors on top of each other
+ *   to create a accent, such as when having inline code block inside
+ *   custom containers.
+ *
+ * - `default`: The color used purely for subtle indication without any
+ *   special meanings attched to it such as bg color for menu hover state.
+ *
+ * - `brand`: Used for primary brand colors, such as link text, button with
+ *   brand theme, etc.
+ *
+ * - `tip`: Used to indicate useful information. The default theme uses the
+ *   brand color for this by default.
+ *
+ * - `warning`: Used to indicate warning to the users. Used in custom
+ *   container, badges, etc.
+ *
+ * - `danger`: Used to show error, or dangerous message to the users. Used
+ *   in custom container, badges, etc.
+ * -------------------------------------------------------------------------- */
 
 :root {
-  --vp-c-brand-1: #9b59b6; /* 紫色主题 */
-  --vp-c-brand-2: #8e44ad;
-  --vp-c-brand-3: #7d3c98;
-  --vp-c-brand-soft: rgba(155, 89, 182, 0.14);
-  
-  --vp-sidebar-bg-color: #f6f6f7;
-  --vp-nav-bg-color: rgba(255, 255, 255, 0.8);
+	--vp-c-default-1: var(--vp-c-gray-1);
+	--vp-c-default-2: var(--vp-c-gray-2);
+	--vp-c-default-3: var(--vp-c-gray-3);
+	--vp-c-default-soft: var(--vp-c-gray-soft);
+
+	--vp-c-brand-1: var(--vp-c-indigo-1);
+	--vp-c-brand-2: var(--vp-c-indigo-2);
+	--vp-c-brand-3: var(--vp-c-indigo-3);
+	--vp-c-brand-soft: var(--vp-c-indigo-soft);
+
+	--vp-c-tip-1: var(--vp-c-brand-1);
+	--vp-c-tip-2: var(--vp-c-brand-2);
+	--vp-c-tip-3: var(--vp-c-brand-3);
+	--vp-c-tip-soft: var(--vp-c-brand-soft);
+
+	--vp-c-warning-1: var(--vp-c-yellow-1);
+	--vp-c-warning-2: var(--vp-c-yellow-2);
+	--vp-c-warning-3: var(--vp-c-yellow-3);
+	--vp-c-warning-soft: var(--vp-c-yellow-soft);
+
+	--vp-c-danger-1: var(--vp-c-red-1);
+	--vp-c-danger-2: var(--vp-c-red-2);
+	--vp-c-danger-3: var(--vp-c-red-3);
+	--vp-c-danger-soft: var(--vp-c-red-soft);
 }
 
-.dark {
-  --vp-c-brand-1: #bb8fce;
-  --vp-c-brand-2: #af7ac5;
-  --vp-c-brand-3: #a569bd;
-  --vp-sidebar-bg-color: #1a1a1a;
-  --vp-nav-bg-color: #1a1a1a;
-  --vp-c-bg: #1a1a1a;
-  --vp-c-bg-soft: #242424;
-  --vp-c-bg-mute: #2c2c2c;
-}
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
 
-/* 侧边栏美化 */
-.VPSidebar {
-  border-right: 1px solid var(--vp-c-divider) !important;
-  width: 300px !important;
-}
-
-.VPSidebarItem.level-0 > .item > .text {
-  font-weight: 700 !important;
-  font-size: 16px !important;
-  color: var(--vp-c-text-1) !important;
-}
-
-.VPSidebarItem.level-0 {
-  padding-bottom: 8px !important;
-  border-bottom: 1px solid var(--vp-c-gutter) !important;
-  margin-bottom: 8px !important;
-}
-
-/* 隐藏默认的小箭头，使用更明显的样式 */
-.VPSidebarItem.collapsed .caret {
-  transform: rotate(-90deg);
-}
-
-/* 正文标题样式 */
-h1 {
-  border-left: 4px solid var(--vp-c-brand-1);
-  padding-left: 16px;
-  margin-top: 24px !important;
-  margin-bottom: 16px !important;
-  color: var(--vp-c-brand-1) !important;
-}
-
-/* Mac 风格代码块深度还原 */
-div[class*='language-'] {
-  position: relative;
-  margin: 1.5rem 0 !important;
-  padding-top: 36px !important;
-  background-color: #ffffff !important; /* 亮色模式默认白色 */
-  border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  border: 1px solid var(--vp-c-divider);
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.dark div[class*='language-'] {
-  background-color: #1e1e1e !important; /* 暗色模式黑色 */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-div[class*='language-']::before {
-  content: '';
-  position: absolute;
-  top: 14px;
-  left: 16px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #ff5f56;
-  box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
-  z-index: 10;
-}
-
-/* 内部代码样式微调 */
-div[class*='language-'] pre {
-  margin: 0 !important;
-  padding: 16px !important;
-  background: transparent !important;
-  font-family: 'Fira Code', 'Cascadia Code', 'Menlo', 'Monaco', 'Consolas', monospace !important;
-  font-size: 14.5px !important;
-  line-height: 1.7 !important;
-  color: var(--vp-c-text-1) !important; /* 使用变量适配亮暗模式文本 */
-}
-
-.dark div[class*='language-'] pre {
-  color: #abb2bf !important;
-}
-
-/* 确保语法高亮颜色不受透明度影响 */
-div[class*='language-'] code span {
-  opacity: 1 !important;
-}
-
-/* 聚光灯效果基础样式 */
-.spotlight-active {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: radial-gradient(
-    circle at var(--x) var(--y),
-    transparent 150px,
-    rgba(0, 0, 0, 0.6) 200px
-  );
-}
-
-/* 页面导航面包屑 */
-.VPDocOutlineItem.item {
-  font-size: 13px !important;
-}
-
-/* 顶部导航栏 */
-.VPNavBar {
-  border-bottom: 1px solid var(--vp-c-divider) !important;
-  background-color: var(--vp-nav-bg-color) !important;
-  transition: all 0.3s ease;
-}
-
-/* 彻底解决黑暗模式顶部导航栏白色问题 */
-.dark .VPNavBar {
-  background-color: var(--vp-c-bg) !important;
-  backdrop-filter: none !important;
-}
-
-.dark .VPNavBar .container,
-.dark .VPNavBar .content,
-.dark .VPNavBar .content-body,
-.dark .VPNavBar .wrapper {
-  background-color: transparent !important;
-}
-
-/* 布局宽度控制 */
 :root {
-  --vp-layout-max-width: 1440px;
-  --vp-sidebar-width: 300px;
+	--vp-button-brand-border: transparent;
+	--vp-button-brand-text: var(--vp-c-white);
+	--vp-button-brand-bg: var(--vp-c-brand-3);
+	--vp-button-brand-hover-border: transparent;
+	--vp-button-brand-hover-text: var(--vp-c-white);
+	--vp-button-brand-hover-bg: var(--vp-c-brand-2);
+	--vp-button-brand-active-border: transparent;
+	--vp-button-brand-active-text: var(--vp-c-white);
+	--vp-button-brand-active-bg: var(--vp-c-brand-1);
 }
 
-.VPSidebar {
-  width: var(--vp-sidebar-width) !important;
-  transition: transform 0.3s ease, width 0.3s ease !important;
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+	--vp-home-hero-name-color: transparent;
+	--vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe 30%, #41d1ff);
+
+	--vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
+	--vp-home-hero-image-filter: blur(44px);
 }
 
-/* 隐藏侧边栏时的样式 */
-.no-sidebar .VPSidebar {
-  width: 0 !important;
-  transform: translateX(-100%);
+@media (min-width: 640px) {
+	:root {
+		--vp-home-hero-image-filter: blur(56px);
+	}
 }
 
-.no-sidebar .VPContent {
-  padding-left: 0 !important;
+@media (min-width: 960px) {
+	:root {
+		--vp-home-hero-image-filter: blur(68px);
+	}
 }
 
-.no-sidebar .VPDoc {
-  padding-left: 0 !important;
+/**
+ * Component: Custom Block
+ * -------------------------------------------------------------------------- */
+
+:root {
+	--vp-custom-block-tip-border: transparent;
+	--vp-custom-block-tip-text: var(--vp-c-text-1);
+	--vp-custom-block-tip-bg: var(--vp-c-brand-soft);
+	--vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
 }
 
-.VPDoc .container {
-  max-width: var(--vp-layout-max-width) !important;
-  transition: max-width 0.3s ease;
-  margin: 0 auto;
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+	--docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
-/* 最后更新时间样式 */
-.last-updated {
-  font-size: 14px;
-  color: var(--vp-c-text-3);
-  margin-bottom: 8px;
+/* 自定义配置 */
+/* :root {
+	--vp-sidebar-width: 23rem;
 }
+aside.VPSidebar nav.nav {
+	counter-reset: list-number 0;
+}
+nav.nav .group {
+} */
