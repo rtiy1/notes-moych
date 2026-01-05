@@ -3,8 +3,8 @@ import { setUserConfig, setGenerateSidebar } from "@ruan-cat/vitepress-preset-co
 const userConfig = setUserConfig({
 	title: "溟如池鱼的个人笔记",
 	description: "个人学习笔记网站",
-  head: [
-		['link', { rel: 'icon', href: '/favicon.ico' }]
+	head: [
+		['link', { rel: 'icon', href: '/favicon.svg' }]
 	],
 	themeConfig: {
 		nav: [
