@@ -1,6 +1,6 @@
 # notes-moych
 
-> 个人学习笔记管理与导出工具（自动生成的初始 README，内容可根据仓库实际代码调整）
+> 个人学习笔记管理与导出工具
 
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Repo Size](https://img.shields.io/github/repo-size/rtiy1/notes-moych)](https://github.com/rtiy1/notes-moych)
@@ -120,7 +120,3 @@ pytest
 ## 作者
 
 rtiy1
-
----
-
-以上为自动生成的初始 README。如果你希望我基于仓库实际文件自动完善（例如写入真实的安装命令、依赖与运行示例），请允许我读取仓库文件并我会在下一步自动更新 README.md 或其他辅助文件。
