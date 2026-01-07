@@ -7,6 +7,9 @@ const userConfig = setUserConfig({
 		['link', { rel: 'icon', href: '/favicon.svg' }]
 	],
 	themeConfig: {
+		search: {
+			provider: 'local'
+		},
 		nav: [
 			{ text: '算法笔记', link: '/算法笔记/' },
 			{ text: '后端笔记', link: '/后端笔记/' },
