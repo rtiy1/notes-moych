@@ -3,6 +3,7 @@ import { setUserConfig, setGenerateSidebar } from "@ruan-cat/vitepress-preset-co
 const userConfig = setUserConfig({
 	title: "溟如池鱼的个人笔记",
 	description: "个人学习笔记网站",
+	lastUpdated: true,
 	head: [
 		['link', { rel: 'icon', href: '/favicon.svg' }]
 	],
@@ -29,7 +30,8 @@ const userConfig = setUserConfig({
 			text: '最后更新于',
 			formatOptions: {
 				dateStyle: 'full',
-				timeStyle: 'medium'
+				timeStyle: 'medium',
+				timeZone: 'Asia/Shanghai'
 			}
 		},
 		footer: {
