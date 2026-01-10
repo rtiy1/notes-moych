@@ -29,3 +29,5 @@ Sidebar is auto-generated from directory structure using `@ruan-cat/vitepress-pr
 - `docs/后端笔记/` - Backend development notes
 - `docs/其他笔记/` - Miscellaneous notes
 - `docs/个人项目文档/` - Personal project documentation
+- `docs/AI编程工具/` - AI IDE tools experience
+- `docs/Claude CLI命令行工具/` - Claude Code CLI guide
