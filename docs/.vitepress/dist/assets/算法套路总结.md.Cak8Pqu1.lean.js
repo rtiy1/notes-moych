@@ -1,1 +1,0 @@
-import{_ as i,c as a,o as n,ae as h}from"./chunks/framework.CDjunVez.js";const g=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"算法套路总结.md","filePath":"算法套路总结.md"}'),k={name:"算法套路总结.md"};function l(p,s,t,e,E,r){return n(),a("div",null,[...s[0]||(s[0]=[h("",9)])])}const y=i(k,[["render",l]]);export{g as __pageData,y as default};
