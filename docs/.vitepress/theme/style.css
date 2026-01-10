@@ -71,6 +71,10 @@ h1 {
 	margin-bottom: 1.5rem;
 }
 
+.dark h1 {
+	color: #d8b4fe;
+}
+
 /* 侧边栏样式优化 */
 .VPSidebarItem.level-0 > .item > .text {
 	font-weight: bold;
