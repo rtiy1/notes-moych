@@ -35,3 +35,9 @@ docs/
 ## 👤 作者
 
 [rtiy1](https://github.com/rtiy1)
+
+## 🙏 致谢
+
+特别感谢 [ruan-cat](https://github.com/ruan-cat) 提供的开源项目支持：
+- [ruan-cat/notes](https://github.com/ruan-cat/notes)：本项目借鉴了其优秀的 UI 界面风格。
+- [ruan-cat/monorepo](https://github.com/ruan-cat/monorepo)：使用了其封装的高质量依赖包（如 `@ruan-cat/vitepress-preset-config`）。
