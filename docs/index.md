@@ -27,4 +27,8 @@ features:
     title: Claude CLI
     details: Claude Code 命令行工具使用指南
     link: /Claude CLI命令行工具/
+  - icon: 🐍
+    title: Python 笔记
+    details: 从 Java 视角快速上手 Python 基础
+    link: /Python/
 ---
