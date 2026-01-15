@@ -19,11 +19,11 @@
 
 [智谱AI开放平台]：https://bigmodel.cn/glm-coding?utm_source=BING&utm_campaign=BING&_channel_track_key=8JOkYuEj&msclkid=bed713ab5dfa1488256f7ac3d9c3c376
 
-![image-20260115140826777](D:\尚硅谷JAVA\my-notes\docs\Claude CLI命令行工具\assets\image-20260115140826777.png)
+![image-20260115140826777](./assets/image-20260115140826777.png)
 
 [Coding Plan - MiniMax API 平台] ：https://platform.minimaxi.com/subscribe/coding-plan
 
-![image-20260115141006343](D:\尚硅谷JAVA\my-notes\docs\Claude CLI命令行工具\assets\image-20260115141006343.png)
+![image-20260115141006343](./assets/image-20260115141006343.png)
 
 #### 通过取巧方式免费使用Claude Code + 国产模型：
 
@@ -42,7 +42,7 @@ npm i -g @iflow-ai/iflow-cli@latest
 npm root -g
 ```
 
-![image-20260115230156422](D:\尚硅谷JAVA\my-notes\docs\Claude CLI命令行工具\assets\image-20260115230156422.png)
+![image-20260115230156422](./assets/image-20260115230156422.png)
 
 我们需要的是D:\npm-repository这个路径添加到环境变量的path中，重启终端就可以启动iflow了
 
