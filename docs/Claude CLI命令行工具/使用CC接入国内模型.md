@@ -29,9 +29,9 @@
 
 [rtiy1/ifow2api]： https://github.com/rtiy1/ifow2api
 
-在配置之前先安装iflow CLI
+在配置之前先安装iflow CLI，在终端输入如下命令安装：
 
-```javascript
+```
 npm i -g @iflow-ai/iflow-cli@latest
 安装完成后iflow即可
 ```
@@ -59,8 +59,12 @@ API: `http://localhost:8000`
 OpenAI 格式对话`/v1/messages`
 
 Anthropic 格式对话`/admin`管理面板
-
-在终端使用如下命令进行配置：
+接下来我们开始安装Claude Code
+```
+npm install -g @anthropic-ai/claude-code
+```
+终端输入claude，即可启动Claude Code
+如果显示不支持所在地区，在终端使用如下命令进行配置：
 
 ```
 echo 'export ANTHROPIC_AUTH_TOKEN="123456"' >> ～/.zshrc
