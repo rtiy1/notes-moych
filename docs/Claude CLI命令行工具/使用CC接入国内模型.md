@@ -29,24 +29,9 @@
 
 [rtiy1/ifow2api]： https://github.com/rtiy1/ifow2api
 
-在配置之前先安装iflow CLI，在终端输入如下命令安装：
+打开从github上下载的ifow2api软件,点击oAuth登录，登陆之后启动服务即可。
 
-```bash
-npm i -g @iflow-ai/iflow-cli@latest
-安装完成后iflow即可
-```
-
-如果显示命令不存在等问题，请找到你的npm仓库
-
-```bash
-npm root -g
-```
-
-![image-20260115230156422](./assets/image-20260115230156422.png)
-
-我们需要的是D:\npm-repository这个路径添加到环境变量的path中，重启终端就可以启动iflow了
-
-登录之后就可以退出了，启动在仓库里下载的程序，进入到localhost:8000/admin就可以看到管理面板。
+点击管理面板会跳转的网页端管理面板，可以查看请求日志。
 
 API: `http://localhost:8000`
 
@@ -59,10 +44,20 @@ API: `http://localhost:8000`
 OpenAI 格式对话`/v1/messages`
 
 Anthropic 格式对话`/admin`管理面板
+
 接下来我们开始安装Claude Code
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
+如果显示命令不存在等问题，请找到你的npm仓库
+
+```bash
+npm root -g
+```
+
+![image-20260115230156422](./assets/image-20260115230156422.png)
+
+我们需要的是D:\npm-repository这个路径添加到环境变量的path中，重启终端就可以启动claude了
 终端输入claude，即可启动Claude Code
 如果显示不支持所在地区，在终端使用如下命令进行配置：
 
